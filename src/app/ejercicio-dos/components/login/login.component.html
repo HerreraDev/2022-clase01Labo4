@@ -1,0 +1,25 @@
+<form class="form" [formGroup]="userForm" (ngSubmit)="signIn(userForm.value)">
+
+    <label>Email</label>
+    <input type="text" formControlName="email">
+
+    
+    <!-- <div *ngFor="let error of error_msg.email">
+      <div *ngIf="userForm.get('email').hasError(error.type) && (userForm.get('email').dirty || userForm.get('email').touched)">
+        {{ error.message }}
+      </div>
+    </div> -->
+
+    <label>Password</label>
+    <input type="password" formControlName="password" class="form-controll" required>
+    
+    <!-- <div *ngFor="let error of error_msg.password">
+        <div *ngIf="userForm.get('password').hasError(error.type) && (userForm.get('password').dirty || userForm.get('password').touched)">
+          {{ error.message }}
+        </div>
+    </div> -->
+
+    <button type="submit" expand="block" [disabled]="!userForm.valid">Signin</button>
+    <br>
+    <label class="ion-text-center" color="danger">{{errorMsg}}</label>
+</form>
